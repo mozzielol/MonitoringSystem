@@ -1,3 +1,3 @@
 # MonitoringSystem
 Remote Monitoring System based on Intel Edison.
-![alt text](https://github.com/mozzielol/MonitoringSystem/Homepage.png)
+![alt text](https://github.com/mozzielol/MonitoringSystem/blob/master/Homepage.png)
