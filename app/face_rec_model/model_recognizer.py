@@ -13,7 +13,7 @@ from facerec.distance import EuclideanDistance
 from ExtendedPredictableModel import ExtendedPredictableModel
 
 def update():
-    model_filepath='/home/root/Interim/app/data/at'
+    model_filepath='./app/data/at'
     model_filename='my_model.pkl'
     image_size=(200,200)
     [images, labels, subject_names] = read_images(model_filepath, image_size)
