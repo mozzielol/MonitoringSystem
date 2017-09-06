@@ -2,9 +2,9 @@ import cv2
 import os
 def generate(frame,dir_name,count):
     if dir_name!='None':
-        face_cascade=cv2.CascadeClassifier('/home/root/Interim/app/cascades/haarcascade_frontalface_default.xml')
+        face_cascade=cv2.CascadeClassifier('./app/cascades/haarcascade_frontalface_default.xml')
 
-        filepath = '/home/root/Interim/app/data/at/%s'%dir_name
+        filepath = './app/data/at/%s'%dir_name
         if os.path.isdir(filepath):
             pass
         else:
