@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/gallery.css">
+
+
+{% for motion in motions%}
+    {% if motion != '.DS_Store' %}
+    <div class="gallery">
+        <a target="_self" href= "{{url_for('send_img',dir=dir,filename=motion)}}">
+    <img src="{{url_for('send_img',dir=dir,filename=motion)}}" alt="{{motion}}" width="600" height="400">
+        </a>
+        <div class="desc">
+            <p>{{ motion }}</p>
+    <a href="{{ url_for('delete_motion',filename=motion)}}" class="button button-glow button-rounded button-caution">Delete</a>
+        </div>
+    </div>
+    
+    {% endif %}
+{% endfor %}
+
+
+{% endblock %}

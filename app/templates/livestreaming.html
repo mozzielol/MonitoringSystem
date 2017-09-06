@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/info.css">
+<div class="info">
+    <center><p><a href="{{ url_for('stream_normal')}}" class="button button-glow button-border button-rounded button-primary">Streaming without Function</a></p></center>
+    <center><p><a href="{{ url_for('stream_detector')}}" class="button button-glow button-border button-rounded button-primary">Streaming with Motion &amp; Face Detection</a></p></center>
+    <center><p><a href="{{ url_for('stream_recognizer')}}" class="button button-glow button-border button-rounded button-primary">Streaming with Face Recognition(without pre-trained model)</a></p></center>
+    <center><p><a href="{{ url_for('model_recognizer_streaming')}}" class="button button-glow button-border button-rounded button-primary">Streaming with Face Recognition(with pre-trained model)</a></p></center>
+</div>
+{% endblock %}

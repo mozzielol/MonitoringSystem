@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/info.css">
+<div class='info'>
+    <center>
+<table>
+        <th>Username</th>
+        <th>Email Address</th>
+        <th>Delete</th>
+        {% for user in username %}
+        <tr>
+            <td>{{ user }}</td>
+            <td>{{ user.email_addr }}</td>
+            <td><a href="{{ url_for('user_delete',username=user)}}">delete</a></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="" method="post" name="manage" id="manage">
+    {{ form_setting.hidden_tag() }}
+    <p>
+        Set Username: {{form_setting.username_setting(size=20)}} 
+        {% for error in form_setting.username_setting.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        Set Email: {{form_setting.email_addr_setting(size=20)}} 
+        {% for error in form_setting.email_addr_setting.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        Set Password: {{form_setting.password_setting(size=20)}} 
+        {% for error in form_setting.password_setting.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        Verify Password: {{form_setting.password_setting_verify(sizi=20)}} 
+        {% for error in form_setting.password_setting_verify.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        <input type="submit" value="Submit" class="button button-pill button-primary">
+        <input type="reset" value="Reset" class="button button-pill button-primary">
+    </p>
+    </form>
+    </center>
+</div>
+{% endblock %}

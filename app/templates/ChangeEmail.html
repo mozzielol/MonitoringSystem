@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post" name="email_change" id="email_change">
+{{ form_email.hidden_tag() }}
+    <p>
+        Username : {{ username }}
+    </p>
+    <p>
+        New Email Address: {{form_email.email_addr_new(size=20)}} <br>
+        {% for error in form_email.email_addr_new.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        Verify Email Address: {{form_email.email_addr_new_verify(sizi=20)}} <br>
+        {% for error in form_email.email_addr_new_verify.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+          <input type="submit" value="Submit" class="button button-pill button-primary">
+          <input type="reset" value="Reset" class="button button-pill button-primary">
+    </p>
+</form>
+{% endblock %}

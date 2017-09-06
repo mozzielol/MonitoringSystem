@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="../static/gallery.css">
+
+
+{% for invador in invadors%}
+    {% if invador != '.DS_Store' %}
+    <div class="gallery">
+        <a target="_self" href= "{{url_for('send_img',dir=dir,filename=invador)}}">
+    <img src="{{url_for('send_img',dir=dir,filename=invador)}}" alt="{{invador}}" width="600" height="400">
+        </a>
+        <div class="desc">
+            <p>{{ invador }}</p>
+    <a href="{{ url_for('delete_invador',filename=invador)}}" class="button button-glow button-rounded button-caution">Delete</a>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+
+
+{% endblock %}

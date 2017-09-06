@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post" name="psw_change" id="psw_change">
+{{ form_psw.hidden_tag() }}
+    <p>
+        Username : {{ username }}
+    </p>
+    <p>
+        New Password: {{form_psw.password_new(size=20)}} <br>
+        {% for error in form_psw.password_new.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+        Verify Password: {{form_psw.password_new_verify(sizi=20)}} <br>
+        {% for error in form_psw.password_new_verify.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>
+         <input type="submit" value="Submit" class="button button-pill button-primary">
+        <input type="reset" value="Reset" class="button button-pill button-primary">
+    </p>
+</form>
+{% endblock %}

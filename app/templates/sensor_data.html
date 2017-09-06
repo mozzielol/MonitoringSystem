@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<meta http-equiv="refresh" content="2.0"> 
+<link rel="stylesheet" href="../static/info.css">
+<div class="info">
+<center>Light sensor  : {{ light_data }}</center><br><br>
+<center>Temperature of celsius : {{ temp_celsius }}</center><br><br>
+<center>Temperature of fahrenheit: {{ temp_fah }}</center><br><br>
+<center>Humidity : {{ humidity }}</center><br><br>
+
+</div>
+{% endblock %}

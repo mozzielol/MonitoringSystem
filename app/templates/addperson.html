@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="" method="post" name="add_person" id="add_person">
+{{ form_addperson.hidden_tag() }}
+    <center>
+    <p>
+        New Person: {{form_addperson.name(size=20)}} <br>
+        {% for error in form_addperson.name.errors %}
+                <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    </center>
+    <center>
+    <p>
+         <input type="submit" value="Submit" class="button button-pill button-primary">
+        <input type="reset" value="Reset" class="button button-pill button-primary">
+    </p>
+    </center>
+</form>
+{% endblock %}

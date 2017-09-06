@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/mainstyle.css">
+        <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/buttons.js"></script>
+        <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Intel Edison Monitoring System</title>
+        {% endif %}
+        {%if user%}
+        <center><h1>Welcome Home {{ user }}</h1></center>
+        {% else %}
+        <center><h1>Welcome Home</h1></center>
+        {% endif %}
+    <div class="button-group">
+        <button type="button" class="button button-primary" onclick="{location.href='{{ url_for('index')}}'}">Home</button>
+        <button type="button" class="button button-primary" onclick="{location.href='{{ url_for('livepage')}}'}">Live Stream</button>
+        <button type="button" class="button button-primary" onclick="{location.href='{{ url_for('invador_img')}}'}">Invador Image</button>
+        <button type="button" class="button button-primary" onclick="{location.href='{{ url_for('motion_img')}}'}">Motion Image</button>
+        <button type="button" class="button button-primary" onclick="{location.href='{{ url_for('sensor_data')}}'}">Sensor Data</button>
+        
+       
+ 
+    <!-- DROPDOWN MENU -->
+    <span class="button-dropdown button-dropdown-primary" data-buttons="dropdown">
+      <ul class="button-dropdown-list is-below">
+        <li><a href="{{ url_for('index')}}">Home</a></li>
+        <li><a href="http://www.bootcss.com/">Option Link 2</a></li>
+      </ul>
+    </span>
+  </div>
+        <hr>
+    </head>
+    <body>
+        <div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }} </li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% if state %}
+        <h3>{{ state }}</h3>
+        {% endif %}   
+        </div>
+        {% block content %}{% endblock %}
+      </body>
+</html>
