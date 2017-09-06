@@ -49,7 +49,7 @@ def face_rec():
 	camera = cv2.VideoCapture(0)
 	
 
-	[X,y,names] = read_images('/home/root/Interim/app/data/at')
+	[X,y,names] = read_images('./app/data/at')
 	y = np.asarray(y,dtype=np.int32)
 
 	if len(sys.argv) == 3:
@@ -64,7 +64,7 @@ def get_frame():
 	global model
 	global names
 	flag = True
-	face_cascade = cv2.CascadeClassifier('/home/root/Interim/app/cascades/haarcascade_frontalface_default.xml')
+	face_cascade = cv2.CascadeClassifier('./app/cascades/haarcascade_frontalface_default.xml')
 	read,img = camera.read()
 	faces = face_cascade.detectMultiScale(img,1.3,5)
 	for(x,y,w,h) in faces:
